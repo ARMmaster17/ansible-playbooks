@@ -1,4 +1,5 @@
 - name: Network test
+  hosts: all
   tasks:
     - name: Test ping of top-level server
       net_ping:
