@@ -1,6 +1,0 @@
-- name: Network test
-  hosts: all
-  tasks:
-    - name: Test ping of top-level server
-      net_ping:
-        dest: 10.0.0.1

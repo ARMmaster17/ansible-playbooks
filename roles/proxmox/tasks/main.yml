@@ -1,0 +1,3 @@
+---
+- name: Set up PVE repositories
+  import_tasks: change_repos.yml

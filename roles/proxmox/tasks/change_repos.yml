@@ -1,0 +1,14 @@
+---
+- name: Add pve-no-subscription repository
+  apt-repository:
+          repo: deb http://download.proxmox.com/debian buster pve-no-subscription
+          state: present
+- name: Remove enterprise repository
+  file:
+          path: /etc/apt/sources.list.d/pve-enterprise.list
+          state: absent
+- name: Update all packages
+  apt:
+          name: "*"
+          state: latest
+          update_cache: yes
