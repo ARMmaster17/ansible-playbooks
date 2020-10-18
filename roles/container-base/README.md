@@ -13,7 +13,7 @@ Role Variables
 
 | Variable | Description | Default | Required |
 | --- | --- | --- | --- |
-| pve_node | Node for container to be deployed on. | pxvh1 | no |
+| pve_node | Node for container to be deployed on. | pxvh[1:3] | no |
 | vm_up_ip | Uplink network IP address with CIDR netmask. | N/A | YES |
 | vm_up_gateway | Uplink gateway. | 10.1.0.1 | no |
 | vm_up_network | Uplink network (internal/dmz). | internal | no |

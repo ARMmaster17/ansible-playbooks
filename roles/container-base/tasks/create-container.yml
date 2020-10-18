@@ -9,7 +9,7 @@
   run_once: true
 - name: Create container
   proxmox:
-          node: "pxvh{{ ['1', '2', '3'] | random }}"
+          node: "{{ pve_node }}"
           api_user: "{{ pve_api_user }}"
           api_password: "{{ pve_api_password }}"
           api_host: "{{ pve_api_node }}"
