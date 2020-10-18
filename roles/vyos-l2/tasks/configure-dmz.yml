@@ -1,0 +1,11 @@
+---
+- name: Configure eth1 (DMZ)
+  vyos_interface:
+          name: eth1
+          description: DMZ
+          enabled: True
+          mtu: 1450
+- name: Set IPv4 configuration (DMZ)
+  vyos_l3_interface:
+          name: eth1
+          ipv4: 172.16.1.1/24

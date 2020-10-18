@@ -1,0 +1,32 @@
+---
+- name: Configure eth0 (DMZ)
+  vyos_interface:
+          name: eth0
+          description: DMZ
+          enabled: True
+          mtu: 1450
+- name: Set IPv4 configuration (DMZ)
+  vyos_l3_interface:
+          name: eth0
+          ipv4: 172.16.1.5/24
+- name: Configure internet connection (DMZ)
+  vyos_static_route:
+          prefix: 0.0.0.0
+          mask: 0
+          next_hop: 172.16.1.1
+          state: present
+- name: Test local uplink connection (DMZ)
+  vyos_ping:
+          dest: 172.16.1.1
+          source: eth0
+          interval: 3
+- name: Test public-level uplink connection (DMZ)
+  vyos_ping:
+          dest: 192.168.1.1
+          source: eth0
+          interval: 3
+- name: Test internet connectivity (DMZ)
+  vyos_ping:
+          dest: 8.8.8.8
+          source: eth0
+          interval: 3

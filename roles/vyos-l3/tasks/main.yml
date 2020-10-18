@@ -1,0 +1,5 @@
+---
+- name: Initialize VMPRIVATE interface
+  import_tasks: configure-vmpriv.yml
+- name: Initialize DMZ interface
+  import_tasks: configure-dmz.yml

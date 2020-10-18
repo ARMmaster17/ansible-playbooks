@@ -1,0 +1,5 @@
+---
+- name: Initialize DMZ interface
+  import_tasks: configure-dmz.yml
+- name: Initialize WAN interface
+  import_tasks: configure-public.yml

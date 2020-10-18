@@ -1,0 +1,13 @@
+---
+- name: set pre-login banner
+  vyos_banner:
+          banner: pre-login
+          text: |
+                  The router {{ inventory_hostname }} is a part of the Firecore Lab network. All actions will be recorded.
+  state: present
+- name: set post-login banner
+  vyos_banner:
+          banner: post-login
+          text: |
+                  Access granted to {{ inventory_hostname }}.
+  state: present

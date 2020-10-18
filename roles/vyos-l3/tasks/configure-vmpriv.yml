@@ -1,0 +1,11 @@
+---
+- name: Configure eth1 (VMPRIVATE)
+  vyos_interface:
+          name: eth1
+          description: VMPRIVATE
+          enabled: True
+          mtu: 1450
+- name: Set IPv4 configuration (VMPRIVATE)
+  vyos_l3_interface:
+          name: eth1
+          ipv4: 10.1.0.1/16

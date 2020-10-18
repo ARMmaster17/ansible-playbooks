@@ -1,0 +1,27 @@
+---
+- name: Configure eth0 (WAN)
+  vyos_interface:
+          name: eth0
+          description: WAN
+          enabled: True
+          mtu: 1500
+- name: Set IPv4 configuration (WAN)
+  vyos_l3_interface:
+          name: eth0
+          ipv4: 192.168.1.250/24
+- name: Configure internet connection (WAN)
+  vyos_static_route:
+          prefix: 0.0.0.0
+          mask: 0
+          next_hop: 192.168.1.1
+          state: present
+- name: Test local uplink connection (WAN)
+  vyos_ping:
+          dest: 192.168.1.1
+          source: eth0
+          interval: 3
+- name: Test internet connectivity (WAN)
+  vyos_ping:
+          dest: 8.8.8.8
+          source: eth0
+          interval: 3

@@ -1,0 +1,3 @@
+---
+- name: Set the login banners
+  import_tasks: set_banner.yml
