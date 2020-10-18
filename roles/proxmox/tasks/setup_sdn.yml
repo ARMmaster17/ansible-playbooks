@@ -1,0 +1,13 @@
+---
+- name: Install packages
+  apt:
+          name:
+                  - libpve-network-perl
+                  - ifupdown2
+- name: Link network configuration
+  lineinfile:
+          path: /etc/network/interfaces
+          line: source /etc/network/interfaces.d/*
+- name: Reboot system
+  reboot:
+          reboot_timeout: 3600
