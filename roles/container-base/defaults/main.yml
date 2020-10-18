@@ -1,5 +1,4 @@
 ---
-pve_node: pxvh1
 pve_api_user: root@pam
 vm_publickey: !vault |
           $ANSIBLE_VAULT;1.1;AES256
@@ -61,8 +60,9 @@ pve_api_password: !vault |
 pve_api_node: pxvh1.firecore.lab
 pve_node: "pxvh{{ ['1', '2', '3'] | random }}"
 vm_up_network: internal
-vm_management_ip: dhcp
-vm_up_gateway: 10.1.0.1
+vm_up_ip: dhcp
+vm_up_ip6: dhcp
+vm_up_gateway: ""
 vm_cores: 1
 vm_ram: 512
 vm_disk: 8

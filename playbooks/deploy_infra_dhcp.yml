@@ -1,0 +1,7 @@
+---
+- hosts: dhcp
+  gather_facts: no
+  roles:
+          - role: dhcp
+            vars:
+                    vm_up_ip: 10.1.0.5/16

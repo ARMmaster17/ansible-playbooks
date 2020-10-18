@@ -1,5 +1,6 @@
 - name: Upload configuration file
-  pause:
-          prompt: No configuration file yet. Please configure manually.
+  copy:
+          src: dnsmasq.conf
+          dest: /etc/dnsmasq.conf
   notify:
           - Restart dnsmasq

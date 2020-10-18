@@ -14,8 +14,9 @@ Role Variables
 | Variable | Description | Default | Required |
 | --- | --- | --- | --- |
 | pve_node | Node for container to be deployed on. | pxvh[1:3] | no |
-| vm_up_ip | Uplink network IP address with CIDR netmask. | N/A | YES |
-| vm_up_gateway | Uplink gateway. | 10.1.0.1 | no |
+| vm_up_ip | Uplink network IP address with CIDR netmask. | dhcp | no |
+| vm_up_ip6 | Uplink network IPv6 address with CIDR netmask. | dhcp | no |
+| vm_up_gateway | Uplink gateway. | N/A | no(if DHCP is enabled) |
 | vm_up_network | Uplink network (internal/dmz). | internal | no |
 | vm_cores | Cores assigned to container. | 1 | no |
 | vm_ram | RAM assigned to container. | 512 | no |
