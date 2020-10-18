@@ -30,6 +30,8 @@ N/A
 Example Playbook
 ----------------
 
+Playbook MUST be run with the argument `--vault-password-file /etc/ansible/vault.password`.
+
 
     - hosts: servers
       roles:
