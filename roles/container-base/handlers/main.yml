@@ -1,2 +1,4 @@
 ---
-# handlers file for container-base
+- name: Wait for container boot
+  pause:
+          seconds: 10
