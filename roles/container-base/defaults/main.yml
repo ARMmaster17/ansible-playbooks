@@ -61,7 +61,6 @@ pve_api_node: pxvh1.firecore.lab
 pve_node: "pxvh{{ ['1', '2', '3'] | random }}"
 vm_up_network: internal
 vm_up_ip: dhcp
-vm_up_ip6: dhcp
 vm_up_gateway: ""
 vm_cores: 1
 vm_ram: 512
