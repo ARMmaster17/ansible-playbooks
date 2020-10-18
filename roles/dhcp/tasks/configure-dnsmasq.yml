@@ -1,0 +1,5 @@
+- name: Upload configuration file
+  pause:
+          prompt: No configuration file yet. Please configure manually.
+  notify:
+          - Restart dnsmasq
