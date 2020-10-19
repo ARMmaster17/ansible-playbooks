@@ -16,7 +16,7 @@
           password: "{{ pve_default_container_password }}"
           hostname: "{{ inventory_hostname }}"
           onboot: "{{ vm_onboot }}"
-          ostemplate: 'firecore-img:vztmpl/debian-10-standard_10.5-1_amd64.tar.gz'
+          ostemplate: "{{ vm_os_template }}"
           netif: '{"net0":"name=eth0,ip={{ vm_up_ip }},bridge={{ vm_up_network }}"}'
           cores: "{{ vm_cores }}"
           memory: "{{ vm_ram }}"
@@ -27,7 +27,7 @@
           searchdomain: firecore.lab
           swap: 256
           timeout: 120
-          unprivileged: yes
+          unprivileged: "{{ vm_unprivileged }}"
           state: present
   delegate_to: 127.0.0.1
 - name: Start the container

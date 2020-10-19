@@ -1,6 +1,6 @@
 ---
 - name: Set APT cache
-  file:
+  copy:
           src: 02proxy
           dest: /etc/apt/apt.conf.d/02proxy
   notify: Update apt cache

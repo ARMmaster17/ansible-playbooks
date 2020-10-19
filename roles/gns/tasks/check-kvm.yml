@@ -1,0 +1,8 @@
+---
+- name: Install cpu-checker
+  apt:
+          name: cpu-checker
+          state: latest
+          update_cache: yes
+- name: Check for KVM acceleration
+  shell: kvm-ok

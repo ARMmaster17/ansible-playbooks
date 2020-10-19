@@ -1,0 +1,8 @@
+[Unit]
+Description=GNS3 Server
+
+[Service]
+ExecStart=/usr/share/gns3/gns3-server/bin/gns3server
+
+[Install]
+WantedBy=multi-user.target

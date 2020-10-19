@@ -1,0 +1,9 @@
+---
+#- name: Check for KVM support
+#  import_tasks: check-kvm.yml
+- name: Install GNS3 software
+  import_tasks: install-gns.yml
+- name: Install Docker
+  import_tasks: install-docker.yml
+- name: Register GNS3 service
+  import_tasks: register-service.yml

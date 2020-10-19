@@ -1,0 +1,20 @@
+---
+- name: Install PPA helper libraries
+  apt:
+          name: gnupg2
+          state: latest
+          update_cache: yes
+- name: Add GNS3 PPA repository
+  apt_repository:
+    repo: 'ppa:gns3/ppa'
+    state: present
+    update_cache: yes
+- name: Perform UTF8 locale fix
+  lineinfile:
+          path: /etc/locale.gen
+          line: 'en_US.UTF-8 UTF-8'
+  notify: Regenerate locale
+- name: Install GNS3
+  apt:
+          name: gns3-server
+          state: latest

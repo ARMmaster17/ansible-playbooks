@@ -63,8 +63,10 @@ vm_up_network: internal
 vm_up_ip: dhcp
 vm_up_gw: ""
 vm_up_dns: 10.1.0.5
+vm_os_template: "firecore-img:vztmpl/debian-10-standard_10.5-1_amd64.tar.gz"
 vm_cores: 1
 vm_ram: 512
 vm_disk: 8
 vm_onboot: yes
 use_cache: primary
+vm_unprivileged: yes

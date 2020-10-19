@@ -5,6 +5,7 @@
           state: latest
           update_cache: yes
 - name: Upload APT-Cacher-Ng configuration
-  pause:
-          prompt: No configuration file present. Please update manually.
+  copy:
+          src: acng.conf
+          dest: /etc/apt-cacher-ng/acng.conf
   notify: Restart apt-cacher-ng

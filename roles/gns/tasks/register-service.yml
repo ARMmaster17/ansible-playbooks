@@ -1,0 +1,11 @@
+---
+- name: Copy SystemD service file
+  copy:
+          src: gns3.service
+          dest: /etc/systemd/system/gns3.service
+          mode: '0777'
+- name: Activate and start GNS3 service
+  service:
+          name: gns3
+          state: started
+          enabled: yes
