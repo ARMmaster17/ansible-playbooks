@@ -17,12 +17,12 @@
           hostname: "{{ inventory_hostname }}"
           onboot: "{{ vm_onboot }}"
           ostemplate: 'firecore-img:vztmpl/debian-10-standard_10.5-1_amd64.tar.gz'
-          netif: '{"net0":"name=eth0,ip={{ vm_up_ip }},bridge={{ vm_up_network }},gw={{ vm_up_gateway }}"}'
+          netif: '{"net0":"name=eth0,ip={{ vm_up_ip }},bridge={{ vm_up_network }},gw={{ vm_up_gw }}"}'
           cores: "{{ vm_cores }}"
           memory: "{{ vm_ram }}"
           disk: "{{ vm_disk }}"
           storage: firecore-fs
-          nameserver: 10.1.0.5
+          nameserver: "{{ vm_up_dns }}"
           pubkey: "{{ vm_publickey }}"
           searchdomain: firecore.lab
           swap: 256

@@ -1,6 +1,14 @@
+- name: Verify dnsmasq temp directory exists
+  file:
+          path: /var/lib/dnsmasq
+          state: directory
+- name: Verify lease file exists
+  file:
+          path: /var/lib/dnsmasq/dnsmasq.leases
+          state: touch
 - name: Upload configuration file
   copy:
-          src: dnsmasq.conf
+          src: dnsmasq-{{ vm_up_network }}.conf
           dest: /etc/dnsmasq.conf
   notify:
           - Restart dnsmasq
