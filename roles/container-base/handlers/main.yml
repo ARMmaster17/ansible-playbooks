@@ -2,3 +2,6 @@
 - name: Wait for container boot
   pause:
           seconds: 10
+- name: Update apt cache
+  apt:
+          update_cache: yes

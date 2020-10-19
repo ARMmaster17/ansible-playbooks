@@ -67,3 +67,4 @@ vm_cores: 1
 vm_ram: 512
 vm_disk: 8
 vm_onboot: yes
+use_cache: primary

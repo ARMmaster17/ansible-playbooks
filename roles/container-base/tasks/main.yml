@@ -1,3 +1,7 @@
 ---
 - name: Create container
   import_tasks: create-container.yml
+- name: Set network settings
+  import_tasks: set-mtu.yml
+- name: Set APT cache settings
+  import_tasks: set-apt-cache.yml
