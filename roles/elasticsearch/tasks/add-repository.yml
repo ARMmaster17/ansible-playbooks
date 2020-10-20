@@ -1,0 +1,15 @@
+---
+- name: Install required software
+  apt:
+          name:
+                  - gnupg2
+                  - apt-transport-https
+          state: latest
+          update_cache: yes
+- name: Import GPG key
+  apt_key:
+          url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+- name: Add repository
+  apt_repository:
+          repo: "deb http://artifacts.elastic.co/packages/7.x/apt stable main"
+          state: present

@@ -1,0 +1,6 @@
+---
+- name: Install Elasticsearch package
+  apt:
+          name: elasticsearch
+          state: latest
+          update_cache: yes

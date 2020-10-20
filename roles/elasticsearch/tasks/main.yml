@@ -1,0 +1,7 @@
+---
+- name: Add Elasticsearch repository
+  import_tasks: add-repository.yml
+- name: Install Elasticsearch
+  import_tasks: install-es.yml
+- name: Configure Elasticsearch
+  import_tasks: configure-es.yml

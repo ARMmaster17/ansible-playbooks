@@ -1,0 +1,11 @@
+---
+- name: Copy configuration file
+  template:
+          src: elasticsearch.j2
+          dest: /etc/elasticsearch/elasticsearch.yml
+  notify: Restart elasticsearch
+- name: Enable Elasticsearch service
+  service:
+          name: elasticsearch
+          state: started
+          enabled: yes
