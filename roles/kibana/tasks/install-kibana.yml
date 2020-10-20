@@ -1,0 +1,6 @@
+---
+- name: Install Kibana package
+  apt:
+          name: kibana
+          state: latest
+          update_cache: yes

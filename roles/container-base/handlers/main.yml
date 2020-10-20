@@ -1,5 +1,5 @@
 ---
-- name: Wait for container boot
+- name: Wait for container to enter ready state
   pause:
           seconds: 10
 - name: Update apt cache

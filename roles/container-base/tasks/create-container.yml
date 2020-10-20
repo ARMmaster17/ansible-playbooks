@@ -38,8 +38,9 @@
           hostname: "{{ inventory_hostname }}"
           state: started
   delegate_to: 127.0.0.1
-- name: Wait for container to enter ready state
-  local_action: wait_for port=22
+  notify: Wait for container to enter ready state
+- name: Flush notifications
+  meta: flush_handlers
 - name: Ping container
   ping:
 - name: Gather facts

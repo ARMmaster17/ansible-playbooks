@@ -1,0 +1,10 @@
+---
+- name: Import configuration file
+  template:
+          src: kibana.j2
+          dest: /etc/kibana/kibana.yml
+  notify: Restart Kibana
+- name: Enable Kibana service
+  service:
+          name: Kibana
+          enabled: yes

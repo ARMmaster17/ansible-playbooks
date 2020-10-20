@@ -1,2 +1,7 @@
 ---
-# tasks file for kibana
+- name: Add Elasticsearch repository
+  import_tasks: add-repository.yml
+- name: Install Kibana
+  import_tasks: install-kibana.yml
+- name: Configure Kibana
+  import_tasks: configure-kibana.yml
