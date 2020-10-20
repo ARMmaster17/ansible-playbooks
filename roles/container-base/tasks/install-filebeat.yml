@@ -1,0 +1,18 @@
+---
+- name: Install Filebeat
+  apt:
+          deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.9.2-amd64.deb
+- name: Upload Filebeat configuration file
+  template:
+          src: filebeat.j2
+          dest: /etc/filebeat/filebeat.yml
+  notify: Restart Filebeat
+- name: Enable Filebeat modules
+  shell: "filebeat modules enable {{ filebeat_modules }}"
+- name: Flush handlers
+  meta: flush_handlers
+- name: Enable Filebeat service
+  service:
+          name: filebeat
+          state: started
+          enabled: yes

@@ -70,3 +70,6 @@ vm_disk: 8
 vm_onboot: yes
 use_cache: primary
 vm_unprivileged: yes
+filebeat: yes
+filebeat_modules_extra: ""
+filebeat_modules: "system {{ filebeat_modules_extra }}"

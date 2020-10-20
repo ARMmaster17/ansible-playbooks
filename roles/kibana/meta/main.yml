@@ -50,4 +50,4 @@ galaxy_info:
 dependencies:
         - role: container-base
           vars:
-                  - vm_ram: 1500
+                  - vm_ram: 1024
