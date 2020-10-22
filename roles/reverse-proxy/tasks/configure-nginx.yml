@@ -1,0 +1,10 @@
+---
+- name: Remove default site configuration
+  file:
+      path: /etc/nginx/sites-available/default
+      state: absent
+- name: Import configuration file
+  notify: Restart Nginx
+  template:
+          src: "site-{{ inventory_hostname_short }}.j2"
+          dest: /etc/nginx/sites-available/default

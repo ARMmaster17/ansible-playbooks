@@ -1,0 +1,12 @@
+---
+- name: Install MariaDB
+  apt:
+          name:
+                  - mariadb-server
+                  - python-pip
+                  - default-libmysqlclient-dev
+          state: latest
+          update_cache: yes
+- name: Install Python helpers
+  pip:
+          name: mysqlclient

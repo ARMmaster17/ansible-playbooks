@@ -1,0 +1,8 @@
+---
+- name: Install MySQL Database
+  import_tasks: install-mysql.yml
+- name: Manual security configuration
+  pause:
+          prompt: Manually connect to server and run mysql_secure_installation
+#- name: Add MySQL users
+#  import_tasks: add-users.yml

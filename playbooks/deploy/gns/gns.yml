@@ -1,5 +1,0 @@
----
-- hosts: gns
-  gather_facts: no
-  roles:
-          - gns

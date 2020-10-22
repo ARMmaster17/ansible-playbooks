@@ -1,0 +1,11 @@
+---
+- name: Install prerequisites
+  apt:
+          name:
+                  - apache2-dev
+                  - bison
+                  - build-essential
+                  - ca-certificates
+                  - curl
+                  - dh-autoreconf
+                  - doxygen

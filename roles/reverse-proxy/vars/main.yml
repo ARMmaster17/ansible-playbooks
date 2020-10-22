@@ -1,0 +1,4 @@
+---
+proxy_forwarded_services:
+        - subdomain: vps
+          url: http://vps1.firecore.lab

@@ -1,0 +1,3 @@
+---
+- name: Set up DDNS client
+  import_tasks: setup-ddns.yml

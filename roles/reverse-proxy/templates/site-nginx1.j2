@@ -1,0 +1,8 @@
+{% for loc in proxy_forwarded_services %}
+server {
+	server_name {{ loc.subdomain }}.firecor.me;
+	location / {
+		proxy_pass {{ loc.url }};
+	}
+}
+{% endfor %}

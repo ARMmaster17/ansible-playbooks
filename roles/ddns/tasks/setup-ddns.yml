@@ -1,0 +1,18 @@
+---
+- name: Install DDClient
+  apt:
+          name: ddclient
+          state: latest
+          update_cache: yes
+- name: Upload configuration file
+  template:
+          src: ddclient.j2
+          dest: /etc/ddclient.conf
+  notify: Restart ddclient
+- name: Flush handlers
+  meta: flush_handlers
+- name: Enable DDClient service
+  service:
+          name: ddclient
+          enabled: yes
+          state: started

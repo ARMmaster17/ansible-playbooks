@@ -1,0 +1,46 @@
+---
+- name: Prepare to add repository
+  apt:
+          name: software-properties-common
+          state: latest
+- name: Add PHP PPA repository
+  apt_repository:
+          repo: ppa:ondrej/php
+          state: absent
+- name: Install prerequisites
+  apt:
+          name:
+                  - fping
+                  - php-pear
+                  - php-gmp
+                  - php-mbstring
+                  - php-gd
+                  - git
+          state: latest
+          update_cache: yes
+- name: Download phpIPAM
+  git:
+          repo: https://github.com/phpipam/phpipam.git
+          dest: /var/www/phpipam
+          recursive: yes
+          version: 1.4
+- name: Upload configuration file
+  pause:
+          prompt: No configuration file present. Configure manually and upload to Ansible.
+- name: Upload Apache2 configuration
+  copy:
+          src: 000-default.conf
+          dest: /etc/apache2/sites-available/000-default.conf
+  notify: Restart apache2
+- name: Enable Apache2 rewrite module
+  apache2_module:
+          name: rewrite
+          state: present
+  notify: Restart apache2
+- name: Set installation directory permissions
+  file:
+          path: /var/www/phpipam/
+          owner: www-data
+          group: www-data
+          state: directory
+          recurse: yes

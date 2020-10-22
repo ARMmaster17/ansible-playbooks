@@ -1,0 +1,10 @@
+---
+- name: Add MySQL users
+  with_items: "{{ mysql_users }}"
+  mysql_user:
+          name: "{{ item.username }}"
+          host: "{{ item.host }}"
+          password:  "{{ item.secret }}"
+          priv: "{{ item.privileges }}"
+          state: present
+  no_log: true

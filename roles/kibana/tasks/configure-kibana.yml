@@ -6,5 +6,5 @@
   notify: Restart Kibana
 - name: Enable Kibana service
   service:
-          name: Kibana
+          name: kibana
           enabled: yes

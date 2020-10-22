@@ -1,0 +1,51 @@
+---
+#- name: Deploy DHCP services
+  #  hosts: dhcp
+  #  gather_facts: no
+  #  roles:
+          #    - dhcp
+- name: Deploy APT caching services
+  hosts: apt-cache
+  gather_facts: no
+  roles:
+    - apt-cache
+- name: Deploy Elasticsearch
+  hosts: elasticsearch
+  gather_facts: no
+  roles:
+    - elasticsearch
+- name: Deploy Kibana
+  hosts: kibana
+  gather_facts: no
+  roles:
+    - kibana
+- name: Deploy GNS3
+  hosts: gns
+  gather_facts: no
+  roles:
+    - gns
+- name: Deploy DDNS Client
+  hosts: ddns
+  gather_facts: no
+  roles:
+    - ddns
+- name: Deploy MySQL database services
+  hosts: mysql
+  gather_facts: no
+  roles:
+          - mysql
+#- name: Deploy phpIPAM
+#  hosts: ipam
+#  gather_facts: no
+#  roles:
+#          - ipam
+- name: Deploy VPS ISPConfig control panel
+  hosts: ispconfig
+  gather_facts: no
+  roles:
+          - ispconfig
+- name: Deploy NGINX reverse proxy services
+  hosts: reverse-proxy
+  gather_facts: no
+  roles:
+    - reverse-proxy

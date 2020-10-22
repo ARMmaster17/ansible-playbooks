@@ -1,0 +1,5 @@
+---
+- name: Install Webserver
+  import_tasks: install-nginx.yml
+- name: Configure Webserver
+  import_tasks: configure-nginx.yml

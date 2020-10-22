@@ -1,0 +1,10 @@
+---
+- name: Install nginx package
+  apt:
+          name: nginx
+          state: latest
+          update_cache: yes
+- name: Remove default site configuration
+  file:
+          path: /etc/nginx/sites-available/default
+          state: absent
