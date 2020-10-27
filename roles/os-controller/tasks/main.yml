@@ -1,0 +1,5 @@
+---
+- name: Install Keystone
+  import_tasks: keystone.yml
+- name: Install Horizon
+  import_tasks: horizon.yml

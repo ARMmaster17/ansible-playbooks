@@ -1,6 +1,6 @@
 galaxy_info:
   author: Joshua Zenn
-  description: Keystone identity server for OpenStack deployment.
+  description: Controller node for OpenStack deployment.
   company: Firecore Lab
   license: MIT
   min_ansible_version: 2.9

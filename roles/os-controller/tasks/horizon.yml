@@ -1,0 +1,21 @@
+- name: Initialize database
+  mysql_db:
+    name: keystone
+    state: present
+- name: Add keystone user
+  mysql_user:
+    name: keystone
+    password: password
+    priv: 'keystone.*:ALL,GRANT'
+    state: present
+    host: '%'
+  notify: Initialize identity service database
+- name: Install keystone
+  apt:
+    name: keystone
+    state: latest
+- name: Upload configuration file
+  pause:
+    prompt: No configuration file found for /etc/keystone/keystone.conf. Configure manually and press ENTER to continue.
+- name: Initilaize database
+  meta: flush_handlers
