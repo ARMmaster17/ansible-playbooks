@@ -9,6 +9,11 @@
   gather_facts: no
   roles:
     - apt-cache
+- name: Deploy NTP services
+  hosts: ntp
+  gather_facts: no
+  roles:
+          - ntp
 - name: Deploy Elasticsearch
   hosts: elasticsearch
   gather_facts: no
@@ -34,18 +39,13 @@
   gather_facts: no
   roles:
           - mysql
-#- name: Deploy phpIPAM
-#  hosts: ipam
-#  gather_facts: no
-#  roles:
-#          - ipam
-- name: Deploy VPS ISPConfig control panel
-  hosts: ispconfig
-  gather_facts: no
-  roles:
-          - ispconfig
 - name: Deploy NGINX reverse proxy services
   hosts: reverse-proxy
   gather_facts: no
   roles:
     - reverse-proxy
+- name: Deploy OpenStack Keystone
+  hosts: os-keystone
+  gather_facts: no
+  roles:
+    - os-keystone

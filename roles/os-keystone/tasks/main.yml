@@ -1,0 +1,16 @@
+---
+- name: Initialize database
+  mysql_db:
+          name: keystone
+          state: present
+- name: Add keystone user
+  mysql_user:
+          name: keystone
+          password: password
+          priv: 'keystone.*:ALL,GRANT'
+          state: present
+          host: '%'
+- name: Install keystone
+  apt:
+          name: keystone
+          state: latest
