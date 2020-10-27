@@ -1,20 +1,14 @@
 galaxy_info:
   author: Joshua Zenn
-  description: VyOS L3 Router initialization.
+  description: L3 router using Vyos.
   company: Firecore Lab
   license: MIT
-
   min_ansible_version: 2.9
-
   platforms:
-          - name: VyOS
-            versions: 1.3
-
-  # If this a Container Enabled role, provide the minimum Ansible Container version.
-  # min_ansible_container_version:
-
+    - name: Vyos
+      versions:
+        - 1.3
   galaxy_tags: []
-
 dependencies:
         - vyos-core
   
