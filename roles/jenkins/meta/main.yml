@@ -1,0 +1,9 @@
+galaxy_info:
+  author: Joshua Zenn
+  description: Jenkins CI/CD server for continious Ansible deployment.
+  company: Firecore Lab
+  license: MIT
+  min_ansible_version: 2.9
+  galaxy_tags: []
+dependencies:
+        - container-base

@@ -39,13 +39,18 @@
   gather_facts: no
   roles:
           - mysql
+- name: Deploy Jenkins CI/CD services
+  hosts: jenkins
+  gather_facts: no
+  roles:
+          - jenkins
 - name: Deploy NGINX reverse proxy services
   hosts: reverse-proxy
   gather_facts: no
   roles:
     - reverse-proxy
-- name: Deploy OpenStack Keystone
-  hosts: os-keystone
-  gather_facts: no
-  roles:
-    - os-keystone
+#- name: Deploy OpenStack Keystone
+#  hosts: os-keystone
+#  gather_facts: no
+#  roles:
+#    - os-keystone

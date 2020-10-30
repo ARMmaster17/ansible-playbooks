@@ -57,7 +57,7 @@ pve_api_password: !vault |
           35313662613836653335623265653538633235383934333837313130663633336365343064623264
           6438666332383835630a376461373564366439383835396234336465633030373534313830663338
           3937
-pve_api_node: pxvh1.firecore.lab
+pve_api_node: pxvh2.firecore.lab
 pve_node: "pxvh{{ ['1', '2', '3'] | random }}"
 vm_up_network: internal
 vm_up_ip: dhcp

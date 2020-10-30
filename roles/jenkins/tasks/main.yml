@@ -1,0 +1,19 @@
+---
+- name: Install OpenJDK
+  apt:
+          name: openjdk-11-jdk
+          state: latest
+          update_cache: yes
+- name: Add APT key for Jenkins repository
+  apt_key:
+          url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+          state: present
+- name: Add Jenkins LTS APT repository
+  apt_repository:
+          repo: deb http://pkg.jenkins.io/debian-stable binary/
+          state: present
+          update_cache: yes
+- name: Install Jenkins
+  apt:
+          name: jenkins
+          state: latest
