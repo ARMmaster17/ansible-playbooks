@@ -1,4 +1,4 @@
 ---
 proxy_forwarded_services:
-        - subdomain: vps
-          url: http://vps1.firecore.lab
+        - subdomain: jenkins
+          url: http://jenkins1.firecore.lab:8080
