@@ -54,3 +54,8 @@
 #  gather_facts: no
 #  roles:
 #    - os-keystone
+- name: Deploy honeypot security containers
+  hosts: hpt
+  gather_facts: no
+  roles:
+    - container-base
