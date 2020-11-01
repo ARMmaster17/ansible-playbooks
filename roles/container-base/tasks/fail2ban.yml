@@ -1,0 +1,6 @@
+---
+- name: Install Fail2Ban
+  apt:
+    name: fail2ban
+    state: latest
+    update_cache: yes

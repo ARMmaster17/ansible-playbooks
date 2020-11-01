@@ -8,3 +8,5 @@
 - name: Setup log forwarding
   import_tasks: install-filebeat.yml
   when: filebeat
+- name: Install Fail2Ban
+  import_tasks: fail2ban.yml
