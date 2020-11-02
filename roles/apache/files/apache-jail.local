@@ -3,7 +3,7 @@ enabled  = true
 port     = http,https
 filter   = apache-auth
 logpath  = /var/log/apache2/*error.log
-maxretry = 3
+maxretry = 2
 findtime = 600
  
 [apache-overflows]
