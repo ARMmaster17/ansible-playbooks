@@ -1,0 +1,23 @@
+[apache]
+enabled  = true
+port     = http,https
+filter   = apache-auth
+logpath  = /var/log/apache2/*error.log
+maxretry = 3
+findtime = 600
+ 
+[apache-overflows]
+enabled  = true
+port     = http,https
+filter   = apache-overflows
+logpath  = /var/log/apache2/*error.log
+maxretry = 2
+findtime = 600
+ 
+[apache-badbots]
+enabled  = true
+port     = http,https
+filter   = apache-badbots
+logpath  = /var/log/apache2/*error.log
+maxretry = 2
+findtime = 600

@@ -1,3 +1,5 @@
 ---
 - name: Install Nginx
   import_tasks: install-nginx.yml
+- name: Secure Nginx
+  import_tasks: secure-nginx.yml

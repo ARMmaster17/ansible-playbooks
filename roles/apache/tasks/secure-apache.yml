@@ -1,0 +1,6 @@
+---
+- name: Copy Fail2Ban configuration
+  copy:
+    src: apache-jail.local
+    dest: /etc/fail2ban/jail.d/apache-jail.local
+  notify: Restart Fail2Ban

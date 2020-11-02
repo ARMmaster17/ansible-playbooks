@@ -1,3 +1,5 @@
 ---
 - name: Install Apache
   import_tasks: install-apache.yml
+- name: Secure Apache
+  import_tasks: secure-apache.yml
