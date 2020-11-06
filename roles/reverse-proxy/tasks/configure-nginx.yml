@@ -6,5 +6,5 @@
 - name: Import configuration file
   notify: Restart Nginx
   template:
-          src: "site-{{ inventory_hostname_short }}.j2"
-          dest: /etc/nginx/sites-available/default
+          src: "firecor-me.j2"
+          dest: /etc/nginx/sites-available/firecor.me
