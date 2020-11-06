@@ -1,8 +1,13 @@
 {% for loc in proxy_forwarded_services %}
 server {
-	server_name {{ loc.subdomain }}.firecor.me;
-	location / {
-		proxy_pass {{ loc.url }};
-	}
+        listen 443;
+        ssl on;
+        ssl_certificate /etc/letsencrypt/live/firecor.me/cert.pem;
+        ssl_certificate_key /etc/letsencrypt/live/firecor.me/privkey.pem;
+        server_name {{ loc.subdomain }}.firecor.me;
+
+        location / {
+                proxy_pass {{ loc.url }};
+        }
 }
 {% endfor %}

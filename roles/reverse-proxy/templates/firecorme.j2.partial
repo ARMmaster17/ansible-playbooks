@@ -1,0 +1,11 @@
+server {
+	listen 443;
+	ssl on;
+	ssl_certificate /etc/letsencrypt/live/firecor.me/cert.pem;
+	ssl_certificate_key /etc/letsencrypt/live/firecor.me/privkey.pem;
+	server_name jenkins.firecor.me;
+
+	location / {
+		proxy_pass http://jenkins1.firecore.lab:8080;
+	}
+}
