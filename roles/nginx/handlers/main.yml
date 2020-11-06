@@ -1,2 +1,5 @@
 ---
-# handlers file for nginx
+    - name: Restart Fail2Ban
+      service:
+        name: fail2ban
+        state: restarted
