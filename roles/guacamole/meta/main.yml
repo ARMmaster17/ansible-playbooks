@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Joshua Zenn
+  description: RDP/SSH/VNC access server using Apache Guacamole.
+  company: Firecore Lab
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions:
+        - 10
+  galaxy_tags: []
+dependencies:
+  - container-base
+  

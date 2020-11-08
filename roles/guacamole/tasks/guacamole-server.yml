@@ -1,0 +1,52 @@
+---
+- name: Install dependencies
+  apt:
+    name:
+      - libcario2-dev
+      - libjpeg62-turbo-dev
+      - libpng12-dev
+      - libtool-bin
+      - libossp-uuid-dev
+      - libavcodec-dev
+      - libavformat-dev
+      - libavutil-dev
+      - libswscale-dev
+      - freerdp2-dev
+      - libpango1.0-dev
+      - libssh2-1-dev
+      - libtelnet-dev
+      - libvncserver-dev
+      - libwebsockets-dev
+      - libpulse-dev
+      - libssl-dev
+      - libvorbis-dev
+      - libwebp-dev
+      - git
+      - autotools-dev
+      - autoconf
+    state: latest
+- name: Download Guacamole Server source
+  unarchive:
+    src: http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/1.2.0/source/guacamole-server-1.2.0.tar.gz
+    dest: /tmp/guacamole-server
+    remote_src: yes
+- name: Configure Guacamole Server
+  command: ./configure --with-init-dir=/etc/init.d
+  args:
+    chdir: /tmp/guacamole-server
+- name: Compile Guacamole Server
+  command: make
+  args:
+    chdir: /tmp/guacamole-server
+- name: Install Guacamole Server
+  command: make install
+  args:
+    chdir: /tmp/guacamole-server
+- name: Update system cache of installed libraries
+  command: ldconfig
+  args:
+    chdir: /tmp/guacamole-server
+- name: Activate Guacamole Server service
+  service:
+    name: guacamole-server
+    enabled: yes

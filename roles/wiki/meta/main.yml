@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Joshua Zenn
+  description: Deploys a static wiki site with Jekyll
+  company: Firecore Lab
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions:
+        - 10
+  galaxy_tags: []
+dependencies:
+        - container-base
+        - apache
