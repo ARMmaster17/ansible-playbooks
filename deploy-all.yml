@@ -60,3 +60,8 @@
   roles:
     - container-base
     - apache
+- name: Deploy Apache Spark cluster
+  hosts: spark
+  gather_facts: no
+  roles:
+          - apache-spark

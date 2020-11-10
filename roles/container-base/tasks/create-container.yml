@@ -30,6 +30,7 @@
           unprivileged: "{{ vm_unprivileged }}"
           state: present
   delegate_to: 127.0.0.1
+  throttle: 1
 - name: Start the container
   proxmox:
           api_user: "{{ pve_api_user }}"

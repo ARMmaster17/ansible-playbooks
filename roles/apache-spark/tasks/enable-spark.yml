@@ -1,0 +1,25 @@
+---
+- name: Copy service file
+  copy:
+          src: spark-master.service
+          dest: /etc/systemd/system/spark-master.service
+  when: spark_master == "yes"
+- name: Copy service file
+  copy:
+          src: spark-worker.service
+          dest: /etc/systemd/system/spark-worker.service
+  when: spark_master == "no"
+- name: Update systemd
+  shell: systemctl daemon-reload
+- name: Enable master service
+  service:
+          name: spark-master
+          state: started
+          enabled: yes
+  when: spark_master == "yes"
+- name: Enable worker services
+  service:
+          name: spark-worker
+          state: started
+          enabled: yes
+  when: spark_master == "no"

@@ -1,0 +1,9 @@
+galaxy_info:
+  author: Joshua Zenn
+  description: Apache Spark cluster for distributed computing.
+  company: Firecore Lab
+  license: MIT
+  min_ansible_version: 2.1
+  galaxy_tags: []
+dependencies:
+  - container-base

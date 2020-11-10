@@ -4,3 +4,5 @@ proxy_forwarded_services:
           url: http://jenkins1.firecore.lab:8080
         - subdomain: pve
           url: https://192.168.1.242:8006
+        - subdomain: spark
+          url: http://spark1.firecore.lab:8080

@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache Spark worker node
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/spark/spark-3.0.1-bin-hadoop3.2/sbin/start-slave.sh spark://spark1.firecore.lab:7077
+ExecStop=/opt/spark/spark-3.0.1-bin-hadoop3.2/sbin/stop-slave.sh
+Restart=on-failure
+StartLimitInterval=30
+
+[Install]
+WantedBy=default.target

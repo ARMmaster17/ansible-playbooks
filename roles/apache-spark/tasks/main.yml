@@ -1,0 +1,5 @@
+---
+- name: Install Apache Spark
+  import_tasks: install-spark.yml
+- name: Install Apache Spark Service
+  import_tasks: enable-spark.yml
