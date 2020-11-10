@@ -1,0 +1,3 @@
+---
+- name: Building Guacamole Server
+  import_tasks: guacamole-server.yml
