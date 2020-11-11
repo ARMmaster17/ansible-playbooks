@@ -45,7 +45,7 @@
 - name: Ping container
   ping:
   rescue:
-          - name: RESCUE: Restarting container
+          - name: RESCUE Restarting container
             proxmox:
                     api_user: "{{ pve_api_user }}"
                     api_password: "{{ pve_api_password }}"
