@@ -4,6 +4,7 @@
           name: nginx
           state: latest
           update_cache: yes
+  throttle: 1
 - name: Remove default site configuration
   file:
           path: /etc/nginx/sites-available/default
