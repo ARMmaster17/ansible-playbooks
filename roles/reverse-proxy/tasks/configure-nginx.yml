@@ -1,10 +1,10 @@
 ---
 - name: Remove default site configuration
   file:
-      path: /etc/nginx/sites-available/default
+      path: /etc/nginx/sites-enabled/default
       state: absent
 - name: Import configuration file
   notify: Restart Nginx
   template:
           src: "firecor-me.j2"
-          dest: /etc/nginx/sites-available/firecor.me
+          dest: /etc/nginx/sites-enabled/firecor.me

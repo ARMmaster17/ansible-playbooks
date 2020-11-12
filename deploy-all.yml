@@ -44,6 +44,11 @@
   gather_facts: no
   roles:
           - jenkins
+- name: Deploy HAProxy load balancers
+  hosts: haproxy
+  gather_facts: no
+  roles:
+          - haproxy
 - name: Deploy NGINX reverse proxy services
   hosts: reverse-proxy
   gather_facts: no
