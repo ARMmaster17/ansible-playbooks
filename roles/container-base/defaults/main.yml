@@ -1,5 +1,5 @@
 ---
-pve_api_user: root@pam
+pve_api_user: ansible@pve
 vm_publickey: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           32643338633139383337613638666634653433623266633962613864636661306561643438633138
