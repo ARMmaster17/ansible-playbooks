@@ -9,5 +9,6 @@ galaxy_info:
       versions:
         - 10
   galaxy_tags: []
-dependencies: []
+dependencies:
+        - container-base
   
