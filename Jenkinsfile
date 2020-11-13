@@ -39,6 +39,15 @@ pipeline {
                 }
             }
         }
+	stage('Zabbix services') {
+		steps {
+			sshagent(['ansible-shared']) {
+				sh '''
+					ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit zabbix'
+				'''
+			}
+		}
+	}
         stage('Elasticsearch services') {
             steps {
                 sshagent(['ansible-shared']) {

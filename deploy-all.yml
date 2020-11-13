@@ -14,6 +14,11 @@
   gather_facts: no
   roles:
           - ntp
+- name: Deploy Zabbix services
+  hosts: zabbix
+  gather_facts: no
+  roles:
+          - zabbix
 - name: Deploy Elasticsearch
   hosts: elasticsearch
   gather_facts: no

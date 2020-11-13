@@ -1,0 +1,38 @@
+---
+- name: Install Zabbix repository
+  apt:
+          deb: https://repo.zabbix.com/zabbix/5.2/debian/pool/main/z/zabbix-release/zabbix-release_5.2-1+debian10_all.deb
+- name: Install Zabbix
+  apt:
+          name:
+                  - zabbix-server-mysql
+                  - zabbix-frontend-php
+                  - zabbix-nginx-conf
+                  - zabbbix-agent
+                  - mariadb-server
+                  - mariadb-client
+                  - nginx
+          state: latest
+          update_cache: yes
+  notify: Restart Zabbix
+- name: Configure Zabbix DB settings
+  lineinfile:
+          path: /etc/zabbix/zabbix_server.conf
+          regexp: '^DBPassword='
+          line: "DBPassword={{ zabbix_db_password}}"
+  notify: Restart Zabbix
+- name: Configure Nginx site
+  lineinfile:
+          path: /etc/zabbix/nginx.conf
+          regexp: '^listen '
+          line: "listen 80"
+  notify: Restart Zabbix
+- name: Enable all services
+  service:
+          name:
+                  - zabbix-server
+                  - zabbix-agent
+                  - nginx
+                  - php7.3-fpm
+          enabled: yes
+          state: started

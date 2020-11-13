@@ -6,3 +6,5 @@ proxy_forwarded_services:
           url: https://192.168.1.242:8006
         - subdomain: spark
           url: http://spark1.firecore.lab:8080
+        - subdomain: zabbix
+          url: http://zabbix1.firecore.lab
