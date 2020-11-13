@@ -8,7 +8,6 @@
                   - zabbix-server-mysql
                   - zabbix-frontend-php
                   - zabbix-nginx-conf
-                  - zabbbix-agent
                   - mariadb-server
                   - mariadb-client
                   - nginx
@@ -31,7 +30,6 @@
   service:
           name:
                   - zabbix-server
-                  - zabbix-agent
                   - nginx
                   - php7.3-fpm
           enabled: yes
