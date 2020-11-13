@@ -5,12 +5,13 @@
 - name: Install Zabbix
   apt:
           name:
-                  - zabbix-server-mysql
+                  - zabbix-server-pgsql
                   - zabbix-frontend-php
+                  - php7.3-pgsql
                   - zabbix-nginx-conf
-                  - mariadb-server
-                  - mariadb-client
+                  - postgresql
                   - nginx
+                  - sudo
           state: latest
           update_cache: yes
   notify: Restart Zabbix
@@ -18,7 +19,7 @@
   lineinfile:
           path: /etc/zabbix/zabbix_server.conf
           regexp: '^DBPassword='
-          line: "DBPassword={{ zabbix_db_password}}"
+          line: "DBPassword={{ zabbix_db_password }}"
   notify: Restart Zabbix
 - name: Configure Nginx site
   lineinfile:
