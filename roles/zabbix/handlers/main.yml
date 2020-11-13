@@ -1,9 +1,5 @@
 ---
 - name: Restart Zabbix
   service:
-          name:
-                  - zabbix-server
-                  - zabbix-agent
-                  - nginx
-                  - php7.3-fpm
+          name: zabbix-server
           state: restarted
