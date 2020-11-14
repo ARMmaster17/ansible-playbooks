@@ -5,6 +5,6 @@
     state: latest
     update_cache: yes
 - name: Run installer
-  shell: "curl https://sh.rustup.rs -sSf | sh"
+  shell: "curl https://sh.rustup.rs -sSf | sh -y"
 - name: Install vigil
   shell: cargo install vigil-server
