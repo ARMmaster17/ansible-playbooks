@@ -12,3 +12,9 @@
           dest: /etc/dnsmasq.conf
   notify:
           - Restart dnsmasq
+- name: Upload static hosts file
+  copy:
+          src: dnsmasq-static-{{ vm_up_network }}.conf
+          dest: /etc/dns-static.conf
+  notify:
+          - Restart dnsmasq

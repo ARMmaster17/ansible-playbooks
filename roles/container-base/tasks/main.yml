@@ -10,3 +10,5 @@
   when: filebeat
 - name: Install Fail2Ban
   import_tasks: fail2ban.yml
+- name: Register with Zabbix
+  import_tasks: zabbix.yml

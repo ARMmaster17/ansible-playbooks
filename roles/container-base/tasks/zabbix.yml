@@ -1,0 +1,34 @@
+---
+- name: Add Zabbix repo
+  apt:
+          deb: https://repo.zabbix.com/zabbix/5.2/debian/pool/main/z/zabbix-release/zabbix-release_5.2-1+debian10_all.deb
+- name: Install Zabbix active agent
+  apt:
+          name: zabbix-agent
+          state: latest
+          update_cache: yes
+  notify: Restart Zabbix agent
+- name: Update active agent configuration
+  lineinfile:
+          path: /etc/zabbix/zabbix_agentd.conf
+          regexp: '^ServerActive='
+          line: ServerActive=zabbix1.firecore.lab
+  notify: Restart Zabbix agent
+- name: Update agent configuration
+  lineinfile:
+          path: /etc/zabbix/zabbix_agentd.conf
+          regexp: '^Server='
+          line: Server=zabbix1.firecore.lab
+  notify: Restart Zabbix agent
+- name: Update host metadata
+  lineinfile:
+          path: /etc/zabbix/zabbix_agentd.conf
+          regexp: '^HostMetadataItem='
+          line: HostMetadataItem=system.uname
+  notify: Restart Zabbix agent
+- name: Update host configuration
+  lineinfile:
+          path: /etc/zabbix/zabbix_agentd.conf
+          regexp: '^Hostname='
+          line: "Hostname={{ inventory_hostname }}"
+  notify: Restart Zabbix agent

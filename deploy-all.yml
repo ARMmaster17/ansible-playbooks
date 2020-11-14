@@ -18,7 +18,7 @@
   hosts: zabbix
   gather_facts: no
   roles:
-          - zabbix
+          - container-base
 - name: Deploy Elasticsearch
   hosts: elasticsearch
   gather_facts: no
