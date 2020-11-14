@@ -4,6 +4,7 @@
     name: curl
     state: latest
     updat_cache: yes
+    update_cache: yes
 - name: Run installer
   shell: "curl https://sh.rustup.rs -sSf | sh"
 - name: Install vigil
