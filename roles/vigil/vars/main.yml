@@ -1,0 +1,52 @@
+---
+vigil_monitored_services:
+  - id: jenkins
+    name: Jenkins CI/CD Services
+    groups:
+      - id: jenkins-controllers
+        name: Job Servers
+        inventory_name: jenkins
+        protocol: http
+        port: 8080
+  - id: zabbix
+    name: Zabbix Monitoring Services
+    groups:
+      - id: zabbix-leaders
+        name: Primary Servers (Web GUI)
+        inventory_name: zabbix
+        protocol: http
+        port: 80
+  - id: spark
+    name: Apache Spark Compute Cluster
+    groups:
+      - id: spark-masters
+        name: Master Nodes
+        inventory_name: spark-masters
+        protocol: http
+        port: 8080
+      - id: spark-workers
+        name: Worker Nodes
+        inventory_name: spark-workers
+        protocol: http
+        port: 8081
+  - id: elasticsearch
+    name: Elasticsearch
+    groups:
+      - id: elastic-nodes
+        name: Elasticsearch Nodes
+        inventory_name: elasticsearch
+        protocol: http
+        port: 5600
+      - id: kibana-nodes
+        name: Kibana Web Interface
+        inventory_name: kibana
+        protocol: http
+        port: 5601
+  - id: apt-cache
+    name: APT Caching Service
+    groups:
+      - id: cache-servers
+        name: Primary Cache
+        inventory_name: apt-cache
+        protocol: http
+        port: 3142

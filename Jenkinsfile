@@ -104,15 +104,15 @@ pipeline {
                 }
             }
         }*/
-	stage('Load balancer services') {
-		steps {
-			sshagent(['ansible-shared']) {
-				sh '''
-					ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit haproxy'
-				'''
-			}
-		}
-	}
+        stage('Load balancer services') {
+            steps {
+                sshagent(['ansible-shared']) {
+                    sh '''
+                        ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit haproxy'
+                    '''
+                }
+            }
+        }
         stage('Reverse proxy services') {
             steps {
                 sshagent(['ansible-shared']) {
@@ -136,6 +136,15 @@ pipeline {
                 sshagent(['ansible-shared']) {
                         sh '''
                             ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit spark'
+                        '''
+                }
+            }
+        }
+        stage('Vigil Monitoring Services') {
+            steps {
+                sshagent(['ansible-shared']) {
+                        sh '''
+                            ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit vigil'
                         '''
                 }
             }

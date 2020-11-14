@@ -1,0 +1,78 @@
+[server]
+
+log_level = "error"
+inet = "0.0.0.0:80"
+workers = 4
+reporter_token = "REPLACE_THIS_WITH_A_SECRET_KEY"
+
+[assets]
+
+path = "./res/assets/"
+
+[branding]
+
+page_title = "Firecore Lab Status"
+page_url = "https://status.firecor.me/"
+company_name = "Firecore Lab"
+icon_color = "#1972F5"
+icon_url = "https://valeriansaliou.github.io/vigil/images/crisp-icon.png"
+logo_color = "#1972F5"
+logo_url = "https://valeriansaliou.github.io/vigil/images/crisp-logo.svg"
+website_url = "https://status.firecor.me/"
+support_url = "mailto:invalid@example.com"
+custom_html = ""
+
+[metrics]
+
+poll_interval = 30
+poll_retry = 2
+
+poll_http_status_healthy_above = 200
+poll_http_status_healthy_below = 400
+
+poll_delay_dead = 30
+poll_delay_sick = 10
+
+push_delay_dead = 20
+
+push_system_cpu_sick_above = 0.90
+push_system_ram_sick_above = 0.90
+
+script_interval = 300
+
+local_delay_dead = 40
+
+[notify]
+
+startup_notification = true
+reminder_interval = 300
+
+[notify.webhook]
+
+hook_url = "http://rex1.firecore.lab/api/vigil"
+
+{% for svc in vigil_monitored_services %}
+
+[probe]
+
+[[probe.service]]
+
+id = "{{ svc.id }}"
+label = "{{ svc.name }}"
+
+{% for group in svc.groups %}
+
+[[probe.service.node]]
+
+id = "{{ group.id }}"
+label = "{{ group.name }}"
+mode = "poll"
+
+replicas = [
+  {% for host in groups[group.inventory_name] %}
+  "{{ group.protocol }}://{{ host }}:{{ group.port }}",
+  {% endfor %}
+]
+
+{% endfor %}
+{% endfor %}

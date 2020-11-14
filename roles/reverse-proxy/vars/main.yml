@@ -8,3 +8,5 @@ proxy_forwarded_services:
           url: http://spark1.firecore.lab:8080
         - subdomain: zabbix
           url: http://zabbix1.firecore.lab
+        - subdomain: status
+          url: http://vigil1.firecore.lab
