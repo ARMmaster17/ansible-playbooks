@@ -74,4 +74,9 @@
   hosts: spark
   gather_facts: no
   roles:
-          - apache-spark
+    - apache-spark
+- name: Deploy Vigil status page
+  hosts: vigil
+  gather_facts: no
+  roles:
+    - vigil
