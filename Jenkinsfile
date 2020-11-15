@@ -140,11 +140,11 @@ pipeline {
                 }
             }
         }
-        stage('Vigil Monitoring Services') {
+        stage('ReX Rescue Services') {
             steps {
                 sshagent(['ansible-shared']) {
                         sh '''
-                            ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit vigil'
+                            ssh root@ansible.firecore.lab 'cd /root/ansible-playbooks && ansible-playbook deploy-all.yml --vault-password-file /etc/ansible/vault.secret -i inventory.ini --limit rex'
                         '''
                 }
             }

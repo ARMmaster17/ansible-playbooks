@@ -75,8 +75,13 @@
   gather_facts: no
   roles:
     - apache-spark
-- name: Deploy Vigil status page
-  hosts: vigil
+#- name: Deploy Vigil status page
+#  hosts: vigil
+#  gather_facts: no
+#  roles:
+#    - vigil
+- name: Deploy ReX rescue services
+  hosts: rex
   gather_facts: no
   roles:
-    - vigil
+    - rex
