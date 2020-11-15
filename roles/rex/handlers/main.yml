@@ -1,0 +1,5 @@
+---
+- name: Restart ReX
+  service:
+          name: rex
+          state: restarted

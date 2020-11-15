@@ -1,0 +1,26 @@
+---
+- name: Install Requirements
+  apt:
+    name:
+      - git
+      - python3
+      - python3-pip
+    state: latest
+    update_cache: yes
+- name: Download ReX
+  git:
+    repo: https://github.com/ARMmaster17/ReX.git
+    dest: /opt/rex
+  notify: Restart ReX
+- name: Update Python Dependencies
+  pip:
+    requirements: /opt/rex/requirements.txt
+- name: Copy service file
+  file:
+    src: /opt/rex/rex.service
+    dest: /etc/systemd/system/rex.service
+    state: link
+- name: Enable ReX service
+  service:
+    name: rex
+    enabled: yes

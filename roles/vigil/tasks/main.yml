@@ -1,8 +1,13 @@
 ---
 - name: Install requirements
   apt:
-    name: curl
+    name:
+      - curl
+      - gcc
     state: latest
     update_cache: yes
-- name: Install vigil
-  shell: cargo install vigil-server
+- name: Copy configuration file
+  template:
+    src: "config.cfg.j2"
+    dest: /opt/config.cfg
+  notify: Restart Vigil
